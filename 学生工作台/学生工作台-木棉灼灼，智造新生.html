@@ -401,7 +401,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--brand-300)!important;
   .top{background:#fff!important}
   .layout,.grid,.two,.deliver{display:block!important}
 }
-</style><style id="__dm_no_drag_style__" data-page-node-id="45PmPWBrEFHls9qV5C7Gwy" style="box-sizing: border-box;">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__" data-page-node-id="kRkzF4hrbrSflI9izd8Cjm" style="box-sizing: border-box;">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style><style>.embedded .topbar{display:none}.embedded .hero{padding-top:24px}</style><script>if(new URLSearchParams(location.search).has('embed'))document.documentElement.classList.add('embedded')</script></head>
+</style><style id="__dm_no_drag_style__" data-page-node-id="45PmPWBrEFHls9qV5C7Gwy" style="box-sizing: border-box;">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__" data-page-node-id="kRkzF4hrbrSflI9izd8Cjm" style="box-sizing: border-box;">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style><style>.embedded body{background:#f7f4ee!important}.embedded .top{background:transparent!important;border:0!important}.embedded .topbar{max-width:none!important;padding:7px 16px!important;justify-content:flex-end!important;background:transparent!important;border:0!important}.embedded .topbar .brand{display:none!important}.embedded .hero,.embedded .hero-deco,.embedded .hero-fold{display:none!important}.embedded main{padding-top:6px!important}</style><script>if(new URLSearchParams(location.search).has('embed'))document.documentElement.classList.add('embedded')</script></head>
 <body data-page-node-id="tmY60SPWBOjBUkUnlaFOEl" style="position: relative; box-sizing: border-box; margin: 0px; background: rgb(255, 255, 255); color: rgb(30, 32, 35); font: 15px / 1.68 -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, system-ui, sans-serif; -webkit-font-smoothing: antialiased;">
 
 <!-- ============ 图标精灵 ============ -->
@@ -993,6 +993,7 @@ const PHASES = [
 const pad2 = n => String(n).padStart(2,'0');
 
 let current = 0, target = 'own', mode = '', timer, db;
+try { current = Math.max(0, Math.min(7, Number(sessionStorage.getItem('kapok-stage') || 0))); sessionStorage.removeItem('kapok-stage'); } catch {}
 let model = { id:uid(), group:'', members:'', steps:stages.map(()=>({note:'',assets:[],revision:0,submitted:null})), guests:[], reviews:[] };
 
 const request = r => new Promise((ok,no)=>{ r.onsuccess=()=>ok(r.result); r.onerror=()=>no(r.error); });
